@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ertegi English · Kazakh Cartoons and Legends in English</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{
+  --bg:#F7FAFC; --ink:#10233A; --panel:#FFFFFF; --sky:#00A3C4; --skyd:#0B5E7A; --gold:#D9A21B;
+  --line:#D8E3EA; --muted:#5B6B7A; --soft:#E8F6FA;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#0C1826;--ink:#E7EEF4;--panel:#132438;--sky:#3CC7E2;--skyd:#7FD8EA;--gold:#F0BE45;--line:#27405A;--muted:#9FB0C0;--soft:#16304A;}
+}
+:root[data-theme="dark"]{--bg:#0C1826;--ink:#E7EEF4;--panel:#132438;--sky:#3CC7E2;--skyd:#7FD8EA;--gold:#F0BE45;--line:#27405A;--muted:#9FB0C0;--soft:#16304A;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.55;}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;line-height:1.15;}
+.wrap{max-width:820px;margin:0 auto;padding:2rem 1.2rem 4rem;}
+header{margin-bottom:1.4rem;}
+.kicker{font-size:.75rem;letter-spacing:.06em;color:var(--gold);font-weight:600;margin:0 0 .4rem;}
+h1{font-size:clamp(1.6rem,4.5vw,2.3rem);margin:0 0 .5rem;color:var(--skyd);}
+.sub{color:var(--muted);margin:0;max-width:60ch;}
+.byline{font-size:.8rem;color:var(--muted);margin-top:.8rem;}
+nav{display:flex;gap:.4rem;margin:1.4rem 0 1.6rem;flex-wrap:wrap;}
+nav button{flex:1 1 0;min-width:120px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:.7rem .6rem;border-radius:10px;font:600 .9rem "Inter",sans-serif;cursor:pointer;}
+nav button.on{background:var(--skyd);color:#fff;border-color:var(--skyd);}
+.view{display:none;} .view.on{display:block;}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.3rem;margin-bottom:1rem;}
+label{display:block;font-size:.8rem;color:var(--muted);margin:.7rem 0 .3rem;}
+input[type=text],input[type=url],textarea{width:100%;font:inherit;font-size:.95rem;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:8px;padding:.55rem .6rem;}
+textarea{resize:vertical;min-height:4.5em;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem;} @media(max-width:560px){.row2{grid-template-columns:1fr;}}
+.btn{font:600 .85rem "Inter",sans-serif;cursor:pointer;border:1px solid var(--skyd);background:var(--skyd);color:#fff;padding:.55rem 1rem;border-radius:8px;}
+.btn.ghost{background:transparent;color:var(--skyd);border-color:var(--line);}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:#1a1300;}
+.qr-area{display:flex;align-items:center;gap:1rem;margin-top:1rem;flex-wrap:wrap;}
+#qrbox{width:132px;height:132px;background:#fff;border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none;}
+.hint{font-size:.82rem;color:var(--muted);}
+.steps{display:flex;gap:.35rem;flex-wrap:wrap;}
+.step-btn{flex:1 1 0;min-width:62px;text-align:center;border:1px solid var(--line);background:transparent;color:var(--muted);padding:.5rem .2rem;font-size:.72rem;border-radius:10px 10px 0 0;border-bottom:none;cursor:pointer;}
+.step-btn b{display:block;font:700 1rem "Fraunces",serif;color:var(--ink);}
+.step-btn.active{background:var(--panel);border-color:var(--sky);color:var(--ink);} .step-btn.active b{color:var(--sky);}
+.panel{display:none;border:1px solid var(--line);border-top:3px solid var(--sky);border-radius:0 0 14px 14px;padding:1.2rem 1.3rem;background:var(--panel);}
+.panel.active{display:block;} .instr{margin:0 0 .8rem;color:var(--muted);font-size:.92rem;}
+.tablewrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:520px;}
+th{text-align:left;font-weight:600;color:var(--muted);font-size:.72rem;padding:.35rem;border-bottom:1px solid var(--line);}
+td{padding:.2rem .3rem;border-bottom:1px solid var(--line);}
+td input{border:none!important;padding:.3rem .2rem!important;}
+.count{font-size:.78rem;color:var(--muted);text-align:right;margin-top:.3rem;}
+.legend-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.8rem;}
+.lcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1rem;cursor:pointer;text-align:left;font:inherit;color:inherit;}
+.lcard:hover,.lcard.sel{border-color:var(--sky);box-shadow:0 0 0 2px var(--soft);}
+.lcard .place{font-size:.72rem;color:var(--gold);font-weight:600;letter-spacing:.03em;}
+.lcard h3{margin:.3rem 0 .3rem;font-size:1.1rem;color:var(--skyd);}
+.lcard p{margin:0;font-size:.85rem;color:var(--muted);}
+#legendView{margin-top:1rem;}
+.story{font-size:1rem;line-height:1.7;}
+.words{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0 1rem;}
+.chip{background:var(--soft);border-radius:999px;padding:.3rem .7rem;font-size:.82rem;}
+.chip b{color:var(--skyd);}
+.btnrow{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem;}
+.foot{display:flex;justify-content:space-between;align-items:center;margin-top:1.6rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted);flex-wrap:wrap;gap:.6rem;}
+#savemsg{opacity:0;transition:opacity .4s;} #savemsg.show{opacity:1;}
+@media print{nav,.btn,.foot,.steps,#view-legends{display:none!important;} .panel{display:block!important;margin-bottom:.8rem;} body{background:#fff;color:#000;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="kicker">ERTEGI ENGLISH · KAZAKH CARTOONS &amp; LEGENDS</p>
+  <h1>From Our Culture to English</h1>
+  <p class="sub">Read or watch a Kazakh legend, then learn English with five steps: Watch → Listen → Read → Learn → Use.</p>
+  <p class="byline">Zhusupov Karim &amp; Zhaulbayev Alikhan · Grade 9 «A» · School‑Lyceum №20, Aktobe · Supervisor: G. I. Tustikbayeva</p>
+</header>
+
+<nav>
+  <button data-v="legends" class="on">① Kazakh Legends</button>
+  <button data-v="work">② Worksheet</button>
+</nav>
+
+<section id="view-legends" class="view on">
+  <p class="hint" style="margin-top:0">Choose a legend. Listen to it in English, learn five key words, then practise it in the worksheet.</p>
+  <div class="legend-grid" id="legendGrid"></div>
+  <div id="legendView"></div>
+</section>
+
+<section id="view-work" class="view">
+  <div class="card">
+    <h2 style="margin:0 0 .3rem;font-size:1.1rem">Your material</h2>
+    <p class="hint" style="margin:0">Use a legend from this site or paste a link to any Kazakh cartoon. The QR code is made in your browser.</p>
+    <label for="desc">Legend or scene</label>
+    <input type="text" id="desc" placeholder="e.g. Why the Swallow’s Tail Is Forked">
+    <div class="row2">
+      <div><label for="link">Video link (optional)</label><input type="url" id="link" placeholder="https://..."></div>
+      <div><label for="tc">Timecode (optional)</label><input type="text" id="tc" placeholder="e.g. 2:10–2:45"></div>
+    </div>
+    <div class="qr-area">
+      <div id="qrbox"><span class="hint" style="font-size:.7rem;text-align:center">QR appears here</span></div>
+      <div><button class="btn" id="gen">Make QR code</button><p class="hint">Print the worksheet — the QR code opens the video on a phone.</p></div>
+    </div>
+  </div>
+  <div class="steps" id="steps"></div>
+  <div id="panels"></div>
+</section>
+
+
+<div class="foot"><span id="savemsg">Saved ✓</span><span><button class="btn ghost" id="printbtn">Print worksheet</button> <button class="btn ghost" id="resetbtn">Reset</button></span></div>
+</div>
+
+<script>
+const LEGENDS=[
+ {id:"aldar",title:"Aldar Kose and the Magic Coat",place:"KAZAKH FOLK TALE",short:"A poor but clever hero tricks a greedy rich man.",
+  story:"Aldar Kose is a poor but very clever hero of Kazakh folk tales. He often tricks greedy rich men and helps ordinary people. In one popular tale, Aldar rides across the steppe on a cold winter day. His old coat is full of holes, but he is singing happily. A rich bai in a warm fur coat asks him: “Why are you not cold?” “My coat is magic,” Aldar answers. “The wind comes in through one hole and goes out through another, so I am always warm.” The greedy bai wants this magic coat, and he gives Aldar his fur coat and his horse for it. Soon the bai is freezing, and Aldar rides away with a smile.",
+  words:[["clever","smart, quick to think"],["greedy","wanting too much"],["trick","to make someone believe something false"],["freeze","to be very, very cold"],["fair","right and honest for everyone"]],
+  q:["Why did the bai want Aldar's coat?","Was Aldar's trick fair? Why or why not?"],value:"Wit and fairness"},
+ {id:"baiterek",title:"Baiterek — the Tree of Life",place:"ANCIENT KAZAKH LEGEND",short:"The magic bird Samruk and its golden egg.",
+  story:"In ancient Kazakh legends there is a giant tree of life called Baiterek. It grows beside a great river and connects the earth and the sky. Every year the magic bird Samruk lays a golden egg at the top of the tree. The golden egg is like the sun: it gives light and new life. But every year the dragon Aidakhar climbs the tree and eats the egg. Summer and winter, day and night change, and the story begins again.",
+  words:[["legend","an old story from the past"],["lay an egg","what a bird does"],["dragon","a big dangerous animal from stories"],["symbol","a sign that means an idea"],["hope","believing that good things will come"]],
+  q:["What does the golden egg mean?","Why do people need stories about hope?"],value:"Hope and new life"},
+ {id:"aisha",title:"Aisha Bibi",place:"KAZAKH LEGEND",short:"A story of love and loyalty.",
+  story:"Aisha was the daughter of a wise and respected man. She loved Karakhan, the young ruler of Taraz, but her father did not allow them to marry. Aisha decided to go to Karakhan anyway, with her loyal nursemaid. On the way, near a river, she stopped to rest. A small snake was hiding in her headdress, and it bit her. Karakhan came, but it was too late. People still remember her as a symbol of true love and loyalty.",
+  words:[["ruler","a person who leads a land"],["allow","to say “yes, you can”"],["loyal","always on your side"],["memory","what we remember about someone"],["brave","not afraid"]],
+  q:["Why did Aisha go to Karakhan?","Was Aisha brave? Why?"],value:"Loyalty and memory"},
+ {id:"kozy",title:"Kozy Korpesh and Bayan Sulu",place:"KAZAKH LYRIC EPIC",short:"The Kazakh story of eternal love.",
+  story:"Before Kozy Korpesh and Bayan Sulu were born, their fathers promised that the children would marry one day. But Kozy's father died, and Bayan's father, Karabai, broke the promise and moved far away. When Kozy grew up, he found Bayan, and they fell in love. The jealous Kodar killed Kozy. Bayan punished Kodar, but she could not live without Kozy. Their story became a symbol of eternal love for the Kazakh people.",
+  words:[["promise","to say you will surely do something"],["break a promise","not to do what you promised"],["jealous","angry because someone has what you want"],["faithful","loving only one person"],["eternal","lasting forever"]],
+  q:["Who broke the promise?","What does this story teach us?"],value:"Faithfulness and keeping your word"},
+ {id:"korkyt",title:"Korkyt Ata and the Kobyz",place:"KAZAKH LEGEND",short:"A wise musician who tried to escape death.",
+  story:"Korkyt was a wise man, a storyteller and a musician. He learned that he would die soon, so he travelled to the four corners of the world to find a land without death. But everywhere he met people who were digging a grave, and they said: “This grave is for Korkyt.” At last he came back to the Syr Darya river, made the first kobyz and began to play. While his music was playing, death could not come to him. His music lives on, and the kobyz is still loved in Kazakhstan.",
+  words:[["wise","knowing a lot about life"],["travel","to go to other places"],["grave","the place where a dead person lies"],["instrument","a thing for playing music"],["forever","for all time"]],
+  q:["Why did Korkyt travel?","Why is music important in this legend?"],value:"Wisdom and the power of art"}
+];
+const $=s=>document.querySelector(s);
+function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>showView(b.dataset.v));
+function showView(v){
+  document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("on",x.dataset.v===v));
+  document.querySelectorAll(".view").forEach(x=>x.classList.toggle("on",x.id==="view-"+v));
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+const grid=$("#legendGrid");
+LEGENDS.forEach(L=>{
+  const b=document.createElement("button"); b.className="lcard"; b.dataset.id=L.id;
+  b.innerHTML=`<div class="place">${L.place}</div><h3>${L.title}</h3><p>${L.short}</p>`;
+  b.onclick=()=>openLegend(L.id); grid.appendChild(b);
+});
+function openLegend(id){
+  const L=LEGENDS.find(x=>x.id===id);
+  document.querySelectorAll(".lcard").forEach(c=>c.classList.toggle("sel",c.dataset.id===id));
+  $("#legendView").innerHTML=`<div class="card">
+    <div class="place" style="font-size:.75rem;color:var(--gold);font-weight:600">${L.place}</div>
+    <h2 style="margin:.3rem 0 .8rem;color:var(--skyd)">${L.title}</h2>
+    <p class="story">${esc(L.story)}</p>
+    <h3 style="font-size:1rem;margin:1rem 0 .2rem">Key words</h3>
+    <div class="words">${L.words.map(w=>`<span class="chip"><b>${w[0]}</b> — ${w[1]}</span>`).join("")}</div>
+    <h3 style="font-size:1rem;margin:0 0 .2rem">Think and answer</h3>
+    <ol style="margin:.2rem 0 0;padding-left:1.2rem">${L.q.map(q=>`<li>${q}</li>`).join("")}</ol>
+    <p class="hint" style="margin-top:.8rem">Value: <b>${L.value}</b></p>
+    <div class="btnrow"><button class="btn gold" id="speak">🔊 Listen in English</button><button class="btn" id="practise">Practise in the worksheet →</button></div>
+  </div>`;
+  $("#speak").onclick=()=>speak(L.story);
+  $("#practise").onclick=()=>practise(L);
+  $("#legendView").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function speak(text){
+  try{ if(!("speechSynthesis" in window)){alert("Your browser cannot read aloud.");return;}
+    speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(text); u.lang="en-GB"; u.rate=.9; speechSynthesis.speak(u);
+  }catch(e){}
+}
+function practise(L){
+  $("#desc").value=L.title;
+  const rows=document.querySelectorAll("#vocabtable tbody tr");
+  L.words.forEach((w,i)=>{ if(!rows[i]) addVocabRow(); const r=document.querySelectorAll("#vocabtable tbody tr")[i]; r.querySelector('[data-col="word"]').value=w[0]; });
+  save(); showView("work"); switchStage("watch");
+}
+
+
+const STAGES=[
+ {id:"watch",n:"1",label:"WATCH",instr:"Watch the scene or read the legend once without stopping. Who are the characters? What happens?",fields:[{k:"watch_q",l:"Who? Where? What happens? (2–3 sentences)",type:"ta"}]},
+ {id:"listen",n:"2",label:"LISTEN",instr:"Listen again (video or 🔊 button). Write the words and phrases you can hear.",fields:[{k:"listen_q",l:"Words / phrases I heard",type:"ta"}]},
+ {id:"read",n:"3",label:"READ",instr:"Read the text or subtitles. Check the spelling of the words you heard.",fields:[{k:"read_q",l:"Correct written forms",type:"ta"}]},
+ {id:"learn",n:"4",label:"LEARN",instr:"Choose 5–8 important words. Write the type, meaning, a context clue and an example.",fields:[{k:"vocab",type:"table"}]},
+ {id:"use",n:"5",label:"USE",instr:"Retell the legend in 30–60 seconds or write a short dialogue with at least 3 new words.",fields:[{k:"use_q",l:"My retelling / dialogue",type:"ta",count:true}]}
+];
+const stepsEl=$("#steps"),panelsEl=$("#panels");
+STAGES.forEach((s,i)=>{
+  const b=document.createElement("button"); b.className="step-btn"+(i?"":" active"); b.dataset.id=s.id; b.innerHTML=`<b>${s.n}</b>${s.label}`; b.onclick=()=>switchStage(s.id); stepsEl.appendChild(b);
+  const p=document.createElement("div"); p.className="panel"+(i?"":" active"); p.id="panel-"+s.id;
+  let h=`<p class="instr">${s.instr}</p>`;
+  s.fields.forEach(f=>{
+    if(f.type==="ta"){h+=`<label for="${f.k}">${f.l}</label><textarea id="${f.k}"></textarea>`; if(f.count) h+=`<div class="count" id="${f.k}_count">0 words</div>`;}
+    else h+=`<div class="tablewrap"><table id="vocabtable"><thead><tr><th>Word</th><th>Type</th><th>Meaning</th><th>Context clue</th><th>Example</th></tr></thead><tbody></tbody></table></div><button class="btn ghost" style="margin-top:.7rem" id="addrow">+ Add word</button>`;
+  });
+  p.innerHTML=h; panelsEl.appendChild(p);
+});
+function switchStage(id){
+  document.querySelectorAll(".step-btn").forEach(b=>b.classList.toggle("active",b.dataset.id===id));
+  document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active",p.id==="panel-"+id));
+}
+const COLS=["word","type","meaning","clue","example"];
+function addVocabRow(v){
+  const tb=$("#vocabtable tbody"); if(tb.children.length>=8) return;
+  const tr=document.createElement("tr");
+  COLS.forEach((c,i)=>{const td=document.createElement("td"),inp=document.createElement("input");inp.type="text";inp.dataset.col=c;inp.value=(v&&v[i])||"";inp.oninput=save;td.appendChild(inp);tr.appendChild(td);});
+  tb.appendChild(tr);
+}
+$("#addrow").onclick=()=>{addVocabRow();save();};
+for(let i=0;i<5;i++) addVocabRow();
+
+$("#gen").onclick=()=>{
+  const url=$("#link").value.trim(), box=$("#qrbox"); box.innerHTML="";
+  if(!url){box.innerHTML='<span class="hint" style="font-size:.7rem;text-align:center">Paste a video link first</span>';return;}
+  try{ new QRCode(box,{text:url,width:120,height:120,colorDark:"#0B2B45",colorLight:"#ffffff"}); }catch(e){ box.innerHTML='<span class="hint" style="font-size:.7rem">QR not available</span>'; }
+  save();
+};
+const useTa=$("#use_q");
+useTa.addEventListener("input",()=>{const n=useTa.value.trim()?useTa.value.trim().split(/\s+/).length:0;$("#use_q_count").textContent=n+" words";});
+document.querySelectorAll("textarea,#link,#tc,#desc").forEach(el=>el.addEventListener("input",save));
+
+let t;
+function save(){ clearTimeout(t); t=setTimeout(()=>{ try{
+  const d={link:$("#link").value,tc:$("#tc").value,desc:$("#desc").value,fields:{},vocab:[]};
+  document.querySelectorAll("textarea").forEach(x=>d.fields[x.id]=x.value);
+  document.querySelectorAll("#vocabtable tbody tr").forEach(tr=>d.vocab.push([...tr.querySelectorAll("input")].map(i=>i.value)));
+  localStorage.setItem("kz_legends_ws",JSON.stringify(d));
+  const m=$("#savemsg"); m.classList.add("show"); setTimeout(()=>m.classList.remove("show"),1200);
+ }catch(e){} },350); }
+function load(){ try{
+  const raw=localStorage.getItem("kz_legends_ws"); if(!raw) return; const d=JSON.parse(raw);
+  $("#link").value=d.link||""; $("#tc").value=d.tc||""; $("#desc").value=d.desc||"";
+  Object.entries(d.fields||{}).forEach(([k,v])=>{const el=document.getElementById(k); if(el) el.value=v;});
+  if(d.vocab&&d.vocab.length){$("#vocabtable tbody").innerHTML=""; d.vocab.forEach(r=>addVocabRow(r));}
+  if($("#link").value) $("#gen").click();
+  useTa.dispatchEvent(new Event("input"));
+ }catch(e){} }
+load();
+$("#printbtn").onclick=()=>{showView("work");setTimeout(()=>window.print(),200);};
+$("#resetbtn").onclick=()=>{ if(confirm("Clear the worksheet on this device?")){ try{localStorage.removeItem("kz_legends_ws");}catch(e){} location.reload(); } };
+</script>
+</body>
+</html>
